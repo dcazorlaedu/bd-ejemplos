@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laboratorio SQL · Bases de Datos</title><link rel="icon" href="../assets/favicon.svg"><link rel="stylesheet" href="../assets/site.css"></head><body>
+<header class="top"><div class="in"><a class="logo" href="../">&lt;/&gt; Bases de Datos</a><nav><a href="../ut1/" class="">UT1</a><a href="../ut2/" class="">UT2</a><a href="../ut3/" class="">UT3</a><a href="../ut4/" class="">UT4</a><a href="../ut5/" class="">UT5</a><a href="../ut6/" class="">UT6</a><a href="../ut7/" class="">UT7</a><a href="../lab/" class="on">Laboratorio SQL</a></nav></div></header>
+<div class="hero"><div class="in"><div class="badge">Laboratorio</div><h1>Laboratorio SQL en el navegador</h1><p>Escribe y ejecuta consultas sobre TiendaTech sin instalar nada.</p></div></div><main><div class="tip"><strong>Este laboratorio ejecuta SQLite en tu navegador</strong> (sql.js, WebAssembly) sobre la base de datos <em>TiendaTech</em>. Casi todo el SQL de las unidades (consultas, DDL básico, DML, transacciones, vistas, índices, disparadores) funciona igual; lo propio de MySQL (<code>AUTO_INCREMENT</code>, <code>ENUM</code>, procedimientos y funciones almacenadas, <code>DELIMITER</code>, usuarios y privilegios) <strong>no existe en SQLite</strong>: para eso usa el MySQL del Docker de clase. Los cambios se pierden al recargar la página.</div>
+<div class="lab"><div class="bar"><label><strong>Ejemplos:</strong> <select id="ej"></select></label>
+<button class="btn min" id="run">▶ Ejecutar (Ctrl+Enter)</button> <button class="btn min sec" id="reset" style="color:inherit">↺ Reiniciar la base de datos</button></div>
+<textarea id="sql" spellcheck="false"></textarea><div id="msg" class="out" style="min-height:40px;margin-top:.6rem"></div><div id="res"></div></div>
+<h2>Tablas de TiendaTech</h2><div class="cols"><div><pre><code>categorias(id_categoria PK, nombre)
+proveedores(id_proveedor PK, nombre, ciudad, telefono)
+productos(id_producto PK, nombre, id_categoria FK,
+          id_proveedor FK, precio, stock, activo)
+clientes(id_cliente PK, nombre, apellidos, email, ciudad, fecha_alta)</code></pre></div>
+<div><pre><code>empleados(id_empleado PK, nombre, puesto, salario,
+          id_jefe FK, fecha_contratacion)
+pedidos(id_pedido PK, id_cliente FK, id_empleado FK,
+        fecha, estado)
+lineas_pedido(id_pedido PK/FK, num_linea PK,
+              id_producto FK, cantidad, precio_unitario)</code></pre></div></div>
+<script src="../assets/sql-wasm.js"></script>
+<script>
+let SQLm, db, EJ=[];
+const $=id=>document.getElementById(id), esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+async function iniciar(){
+  SQLm = SQLm || await initSqlJs({locateFile: f => '../assets/' + f});
+  const sql = await (await fetch('../assets/tienda.sql')).text();
+  db = new SQLm.Database(); db.run('PRAGMA foreign_keys = ON;'); db.exec(sql); $('msg').textContent='Base de datos TiendaTech cargada: 7 tablas.'; $('res').innerHTML='';
+}
+function pintar(r){ if(!r.length){ $('res').innerHTML=''; return }
+  $('res').innerHTML = r.map(t=>'<table class="res"><tr>'+t.columns.map(c=>'<th>'+esc(c)+'</th>').join('')+'</tr>'+t.values.slice(0,200).map(f=>'<tr>'+f.map(v=>'<td>'+(v===null?'<em>NULL</em>':esc(v))+'</td>').join('')+'</tr>').join('')+'</table>'+(t.values.length>200?'<p>… mostrando 200 de '+t.values.length+' filas</p>':'<p style="font-size:.8rem;opacity:.7">'+t.values.length+' fila(s)</p>')).join('');
+}
+function ejecutar(){ try{ const t0=performance.now(); const r=db.exec($('sql').value); $('msg').innerHTML='<span class="ok">✔ Ejecutado</span> en '+(performance.now()-t0).toFixed(1)+' ms'; pintar(r); }catch(e){ $('msg').innerHTML='<span class="err">✘ ERROR</span> '+esc(e.message); $('res').innerHTML=''; } }
+async function main(){
+  EJ = await (await fetch('../assets/ejemplos.json')).json();
+  $('ej').innerHTML = '<option value="">— elige un ejemplo —</option>'+EJ.map(e=>'<option value="'+e.id+'">'+esc(e.t)+'</option>').join('');
+  const cargar=id=>{const e=EJ.find(x=>x.id===id); if(e){ $('sql').value=e.sql; $('ej').value=id; }};
+  $('ej').onchange=()=>cargar($('ej').value);
+  $('run').onclick=ejecutar; $('reset').onclick=iniciar;
+  $('sql').addEventListener('keydown',e=>{ if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){ e.preventDefault(); ejecutar(); }});
+  await iniciar(); const h=location.hash.slice(1); if(h){ cargar(h); ejecutar(); } else { cargar('ut4-basico'); }
+}
+main();
+</script></main>
+<footer>Material didáctico · 2026-27 · Todos los datos de los ejemplos son ficticios. No incluye soluciones de ejercicios ni pruebas.</footer></body></html>

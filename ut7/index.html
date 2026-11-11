@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UT7 · Bases de Datos</title><link rel="icon" href="../assets/favicon.svg"><link rel="stylesheet" href="../assets/site.css"></head><body>
+<header class="top"><div class="in"><a class="logo" href="../">&lt;/&gt; Bases de Datos</a><nav><a href="../ut1/" class="">UT1</a><a href="../ut2/" class="">UT2</a><a href="../ut3/" class="">UT3</a><a href="../ut4/" class="">UT4</a><a href="../ut5/" class="">UT5</a><a href="../ut6/" class="">UT6</a><a href="../ut7/" class="on">UT7</a><a href="../lab/" class="">Laboratorio SQL</a></nav></div></header>
+<div class="hero"><div class="in"><div class="badge">UT 7 · RA7</div><h1>Bases de datos no relacionales</h1><p>MongoDB: documentos, consultas, agregación e índices.</p></div></div><main><div class="crumb"><a href="../">Inicio</a> › UT7</div><h2>Qué se trabaja</h2><ul><li>Caracterización y tipos de bases de datos no relacionales; MongoDB.</li><li>Modelado de documentos (embeber o referenciar), consultas, agregación e índices.</li></ul><h2>Pruébalo en el laboratorio</h2><p class="chips"><a href="../lab/#ut7-json">UT7 · De relacional a JSON</a></p><h2>Consultas MongoDB (resultados reales)</h2><p>Colecciones de ejemplo de TiendaTech (productos, clientes y pedidos con las líneas embebidas), ejecutadas en <strong>MongoDB 9.0</strong>:</p><pre><code>db.productos.find({categoria:&#x27;Redes&#x27;},{_id:0,nombre:1,precio:1}).sort({precio:1}).limit(3)</code></pre><pre><code>▶ Resultado
+[
+  { nombre: &#x27;Cable red 5m&#x27;, precio: 6.5 },
+  { nombre: &#x27;Switch 8 puertos&#x27;, precio: 34.9 },
+  { nombre: &#x27;Router WiFi 6&#x27;, precio: 89 }
+]</code></pre><pre><code>db.pedidos.aggregate([{$unwind:&#x27;$lineas&#x27;},{$group:{_id:&#x27;$lineas.nombre&#x27;,unidades:{$sum:&#x27;$lineas.cantidad&#x27;}}},{$sort:{unidades:-1}},{$limit:3}])</code></pre><pre><code>▶ Resultado
+[
+  { _id: &#x27;Webcam HD&#x27;, unidades: 12 },
+  { _id: &#x27;Fuente 650W&#x27;, unidades: 12 },
+  { _id: &#x27;Teclado mecánico&#x27;, unidades: 12 }
+]</code></pre><pre><code>db.pedidos.findOne({},{_id:0,id:1,estado:1,lineas:{$slice:1}})</code></pre><pre><code>▶ Resultado
+{
+  estado: &#x27;pendiente&#x27;,
+  lineas: [
+    {
+      num: 1,
+      producto_id: 18,
+      nombre: &#x27;Switch 8 puertos&#x27;,
+      cantidad: 1,
+      precio_unitario: 34.9
+    }
+  ]
+}</code></pre><h2>Figuras de la unidad</h2><figure><img class="fig" src="f2_tipos.png" alt="Tipos de datos" style=max-width:760px><figcaption>Tipos de datos</figcaption></figure><figure><img class="fig" src="f4_modelado.png" alt="Modelado de documentos" style=max-width:760px><figcaption>Modelado de documentos</figcaption></figure><figure><img class="fig" src="f5_embeber.png" alt="Embeber frente a referenciar" style=max-width:760px><figcaption>Embeber frente a referenciar</figcaption></figure><figure><img class="fig" src="f7_pipeline.png" alt="Pipeline de agregación" style=max-width:760px><figcaption>Pipeline de agregación</figcaption></figure><figure><img class="fig" src="f9_replica_shard.png" alt="Replicación y fragmentación (sharding)" style=max-width:760px><figcaption>Replicación y fragmentación (sharding)</figcaption></figure></main>
+<footer>Material didáctico · 2026-27 · Todos los datos de los ejemplos son ficticios. No incluye soluciones de ejercicios ni pruebas.</footer></body></html>

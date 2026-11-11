@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UT6 · Bases de Datos</title><link rel="icon" href="../assets/favicon.svg"><link rel="stylesheet" href="../assets/site.css"></head><body>
+<header class="top"><div class="in"><a class="logo" href="../">&lt;/&gt; Bases de Datos</a><nav><a href="../ut1/" class="">UT1</a><a href="../ut2/" class="">UT2</a><a href="../ut3/" class="">UT3</a><a href="../ut4/" class="">UT4</a><a href="../ut5/" class="">UT5</a><a href="../ut6/" class="on">UT6</a><a href="../ut7/" class="">UT7</a><a href="../lab/" class="">Laboratorio SQL</a></nav></div></header>
+<div class="hero"><div class="in"><div class="badge">UT 6 · RA5</div><h1>Programación de bases de datos</h1><p>Funciones, procedimientos, disparadores, eventos y cursores.</p></div></div><main><div class="crumb"><a href="../">Inicio</a> › UT6</div><h2>Qué se trabaja</h2><ul><li>Funciones y procedimientos almacenados, variables y control de flujo.</li><li>Disparadores, eventos, cursores y manejo de excepciones.</li></ul><h2>Pruébalo en el laboratorio</h2><p class="chips"><a href="../lab/#ut6-trigger">UT6 · Disparador de auditoría (SQLite)</a></p><h2>Funciones y procedimientos en MySQL</h2><p>El laboratorio SQLite no tiene rutinas almacenadas. Este código se ha ejecutado en <strong>MySQL 8.4</strong>; pruébalo en tu Docker:</p><pre><code>DELIMITER $$
+CREATE FUNCTION fn_descuento(p_importe DECIMAL(10,2)) RETURNS INT DETERMINISTIC
+BEGIN
+  RETURN CASE WHEN p_importe &gt;= 1000 THEN 10 WHEN p_importe &gt;= 500 THEN 5 ELSE 0 END;
+END$$
+CREATE PROCEDURE sp_resumen_cliente(IN p_id INT, OUT p_pedidos INT, OUT p_gasto DECIMAL(10,2))
+BEGIN
+  SELECT COUNT(DISTINCT p.id_pedido), IFNULL(SUM(l.cantidad * l.precio_unitario), 0)
+    INTO p_pedidos, p_gasto FROM pedidos p JOIN lineas_pedido l USING (id_pedido) WHERE p.id_cliente = p_id;
+END$$
+DELIMITER ;</code></pre><pre><code>SELECT fn_descuento(300) AS d300, fn_descuento(750) AS d750, fn_descuento(1500) AS d1500;
+CALL sp_resumen_cliente(1, @n, @g);
+SELECT @n AS pedidos, @g AS gasto;</code></pre><pre><code>▶ Resultado real
++------+------+-------+
+| d300 | d750 | d1500 |
++------+------+-------+
+|    0 |    5 |    10 |
++------+------+-------+
++---------+-------+
+| pedidos | gasto |
++---------+-------+
+|       0 |  0.00 |
++---------+-------+</code></pre><h2>Figuras de la unidad</h2><figure><img class="fig" src="f1_rutinas.png" alt="Rutinas almacenadas" style=max-width:760px><figcaption>Rutinas almacenadas</figcaption></figure><figure><img class="fig" src="f4_flujo.png" alt="Estructuras de control de flujo" style=max-width:760px><figcaption>Estructuras de control de flujo</figcaption></figure><figure><img class="fig" src="f5_triggers.png" alt="Disparadores" style=max-width:760px><figcaption>Disparadores</figcaption></figure><figure><img class="fig" src="f8_cursor.png" alt="Cursores" style=max-width:760px><figcaption>Cursores</figcaption></figure><figure><img class="fig" src="f10_evento.png" alt="Eventos programados" style=max-width:760px><figcaption>Eventos programados</figcaption></figure></main>
+<footer>Material didáctico · 2026-27 · Todos los datos de los ejemplos son ficticios. No incluye soluciones de ejercicios ni pruebas.</footer></body></html>
