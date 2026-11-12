@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Batería de ejercicios · Bases de Datos</title>
+<link rel="icon" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../assets/site.css"></head><body>
+<header class="top"><div class="in"><a class="logo" href="../">&lt;/&gt; Bases de Datos</a>
+<nav><a href="../ut1/">UT1</a><a href="../ut2/">UT2</a><a href="../ut3/">UT3</a><a href="../ut4/">UT4</a><a href="../ut5/">UT5</a><a href="../ut6/">UT6</a><a href="../ut7/">UT7</a><a href="../ejercicios/" class="on">Ejercicios</a><a href="../lab/">Laboratorio SQL</a></nav></div></header><div class="hero"><div class="in"><div class="badge">Bases de Datos · 1.º DAW</div>
+<h1>20 ejercicios por UT</h1><p>Una secuencia progresiva: empieza por los fundamentos y avanza hasta tareas integradas. Cada unidad trabaja el RA asociado y cubre todos sus criterios de evaluación.</p>
+<p><a class="btn" href="#lista">Ver ejercicios</a> <a class="btn sec" href="../">Volver a Bases de Datos</a></p></div></div>
+<main><div class="tip"><strong>Cómo usar la batería.</strong> Los ejercicios están ordenados por unidad y, dentro de cada UT, por dificultad creciente. Las consignas no incluyen soluciones. Usa datos inventados; no publiques contraseñas ni datos personales reales. Las prácticas SQL están pensadas para una base de pruebas MySQL 8.4 y UT7 para MongoDB.</div>
+<div class="row"><label for="unidad"><strong>Filtrar por unidad</strong><select id="unidad"><option value="">Todas las unidades</option><option value="1">UT1 · RA1 · 2 ejercicios</option><option value="2">UT2 · RA6 · 3 ejercicios</option><option value="3">UT3 · RA2 · 3 ejercicios</option><option value="4">UT4 · RA3 · 4 ejercicios</option><option value="5">UT5 · RA4 · 3 ejercicios</option><option value="6">UT6 · RA5 · 3 ejercicios</option><option value="7">UT7 · RA7 · 2 ejercicios</option></select></label><div><strong>Progreso:</strong> del ejercicio 01 al 20, sin saltos.</div></div>
+<h2 id="lista">Ejercicios</h2><div class="grid" id="ejercicios"><a class="card ejercicio" data-ut="1" href="01_ejercicio_UT1/">
+<div class="ra">01_ejercicio_UT1 · UT1 · RA1 · Nivel 1</div>
+<h3>Del archivo a la base de datos</h3><p>Una pequeña tienda guarda clientes, productos y pedidos en hojas de cálculo independientes; cada vendedor mantiene además una lista local de contactos.</p>
+<p><strong>CE trabajados:</strong> a), b), c), d), e), f)</p></a><a class="card ejercicio" data-ut="1" href="02_ejercicio_UT1/">
+<div class="ra">02_ejercicio_UT1 · UT1 · RA1 · Nivel 2</div>
+<h3>Diseño de una solución distribuida y responsable</h3><p>TiendaTech tiene un almacén en Totana y dos puntos de venta. Necesita consultar existencias, conservar pedidos y analizar ventas sin exponer datos personales innecesarios.</p>
+<p><strong>CE trabajados:</strong> c), d), e), f), g), h), i), j)</p></a><a class="card ejercicio" data-ut="2" href="03_ejercicio_UT2/">
+<div class="ra">03_ejercicio_UT2 · UT2 · RA6 · Nivel 1</div>
+<h3>Modelo E-R para una cafetería</h3><p>Una cafetería quiere registrar clientes, mesas, reservas, productos de carta y pedidos. Cada reserva pertenece a un cliente y una mesa; un pedido puede incluir varios productos y cada producto puede aparecer en muchos pedidos.</p>
+<p><strong>CE trabajados:</strong> a), b), c), d), e)</p></a><a class="card ejercicio" data-ut="2" href="04_ejercicio_UT2/">
+<div class="ra">04_ejercicio_UT2 · UT2 · RA6 · Nivel 2</div>
+<h3>Del E-R al modelo relacional</h3><p>Una academia programa cursos con varias ediciones. Cada edición tiene docentes y alumnado; una persona puede impartir varias ediciones y matricularse en varias.</p>
+<p><strong>CE trabajados:</strong> a), b), c), d), e), f), h)</p></a><a class="card ejercicio" data-ut="2" href="05_ejercicio_UT2/">
+<div class="ra">05_ejercicio_UT2 · UT2 · RA6 · Nivel 3</div>
+<h3>Normalización del registro de pedidos</h3><p>Se parte de una hoja única con: pedido, fecha, cliente, email, ciudad, producto, categoría, proveedor, teléfono del proveedor, cantidad y precio de venta. Un pedido puede incluir varios productos.</p>
+<p><strong>CE trabajados:</strong> b), c), d), e), f), g), h)</p></a><a class="card ejercicio" data-ut="3" href="06_ejercicio_UT3/">
+<div class="ra">06_ejercicio_UT3 · UT3 · RA2 · Nivel 1</div>
+<h3>Construye el esquema de una biblioteca</h3><p>Una biblioteca necesita gestionar libros, ejemplares, personas usuarias y préstamos. Un libro puede tener varios ejemplares; un ejemplar puede aparecer en muchos préstamos a lo largo del tiempo.</p>
+<p><strong>CE trabajados:</strong> a), b), c), d), e), h)</p></a><a class="card ejercicio" data-ut="3" href="07_ejercicio_UT3/">
+<div class="ra">07_ejercicio_UT3 · UT3 · RA2 · Nivel 2</div>
+<h3>Vistas para cada perfil</h3><p>Sobre TiendaTech, el personal de almacén necesita consultar productos y existencias; dirección necesita un resumen de pedidos, pero no requiere los datos de contacto de clientes.</p>
+<p><strong>CE trabajados:</strong> f), h)</p></a><a class="card ejercicio" data-ut="3" href="08_ejercicio_UT3/">
+<div class="ra">08_ejercicio_UT3 · UT3 · RA2 · Nivel 3</div>
+<h3>Usuarios y privilegios mínimos</h3><p>La base de datos de una tienda tendrá perfiles de consulta, almacén y administración. Cada perfil debe recibir solo los permisos imprescindibles.</p>
+<p><strong>CE trabajados:</strong> f), g), h)</p></a><a class="card ejercicio" data-ut="4" href="09_ejercicio_UT4/">
+<div class="ra">09_ejercicio_UT4 · UT4 · RA3 · Nivel 1</div>
+<h3>Consultas básicas de catálogo</h3><p>El equipo comercial necesita consultar el catálogo de TiendaTech para preparar una campaña. Usa la base de datos ficticia del laboratorio SQL o el esquema MySQL de Material.</p>
+<p><strong>CE trabajados:</strong> a), b)</p></a><a class="card ejercicio" data-ut="4" href="10_ejercicio_UT4/">
+<div class="ra">10_ejercicio_UT4 · UT4 · RA3 · Nivel 2</div>
+<h3>Pedidos, clientes y productos</h3><p>Dirección quiere saber quién hizo cada pedido y qué productos se incluyeron. También necesita ver clientes sin pedidos y pedidos que todavía no tienen empleado asignado.</p>
+<p><strong>CE trabajados:</strong> c), d)</p></a><a class="card ejercicio" data-ut="4" href="11_ejercicio_UT4/">
+<div class="ra">11_ejercicio_UT4 · UT4 · RA3 · Nivel 3</div>
+<h3>Informe de ventas por ciudad</h3><p>El área comercial prepara un informe mensual basado en pedidos, clientes y líneas de pedido.</p>
+<p><strong>CE trabajados:</strong> e), g)</p></a><a class="card ejercicio" data-ut="4" href="12_ejercicio_UT4/">
+<div class="ra">12_ejercicio_UT4 · UT4 · RA3 · Nivel 4</div>
+<h3>Subconsultas y optimización del informe</h3><p>TiendaTech quiere localizar productos cuyo precio supera la media de su categoría, clientes con actividad por encima de la media y pedidos sin líneas. Las consultas se ejecutarán sobre MySQL.</p>
+<p><strong>CE trabajados:</strong> f), h)</p></a><a class="card ejercicio" data-ut="5" href="13_ejercicio_UT5/">
+<div class="ra">13_ejercicio_UT5 · UT5 · RA4 · Nivel 1</div>
+<h3>Mantenimiento seguro del catálogo</h3><p>El almacén debe dar de alta un proveedor y varios productos, actualizar existencias y retirar un producto descatalogado.</p>
+<p><strong>CE trabajados:</strong> a), b), h)</p></a><a class="card ejercicio" data-ut="5" href="14_ejercicio_UT5/">
+<div class="ra">14_ejercicio_UT5 · UT5 · RA4 · Nivel 2</div>
+<h3>Carga de una campaña promocional</h3><p>La tienda quiere guardar en una tabla de trabajo los productos activos de una categoría cuyo stock está por debajo del mínimo, calcular una propuesta de reposición y registrar los cambios mediante un guion.</p>
+<p><strong>CE trabajados:</strong> a), b), c), d), h)</p></a><a class="card ejercicio" data-ut="5" href="15_ejercicio_UT5/">
+<div class="ra">15_ejercicio_UT5 · UT5 · RA4 · Nivel 3</div>
+<h3>Transacción de pedido y concurrencia</h3><p>Al confirmar un pedido se deben insertar la cabecera y sus líneas, descontar stock y evitar que dos sesiones vendan las últimas unidades simultáneamente.</p>
+<p><strong>CE trabajados:</strong> b), d), e), f), g), h)</p></a><a class="card ejercicio" data-ut="6" href="16_ejercicio_UT6/">
+<div class="ra">16_ejercicio_UT6 · UT6 · RA5 · Nivel 1</div>
+<h3>Automatiza un informe de stock</h3><p>El equipo de almacén solicita un informe repetible con productos bajo mínimos y el número total de referencias afectadas.</p>
+<p><strong>CE trabajados:</strong> a), b), c), d), e)</p></a><a class="card ejercicio" data-ut="6" href="17_ejercicio_UT6/">
+<div class="ra">17_ejercicio_UT6 · UT6 · RA5 · Nivel 2</div>
+<h3>Procedimiento de reposición con reglas</h3><p>TiendaTech necesita una rutina que reciba una categoría y un umbral, calcule cuántos productos necesitan reposición y devuelva una etiqueta según el resultado.</p>
+<p><strong>CE trabajados:</strong> d), e), f), g), j)</p></a><a class="card ejercicio" data-ut="6" href="18_ejercicio_UT6/">
+<div class="ra">18_ejercicio_UT6 · UT6 · RA5 · Nivel 3</div>
+<h3>Auditoría de cambios y tarea programada</h3><p>La empresa quiere auditar las variaciones de precio, conservar el valor anterior y nuevo, y generar cada noche un resumen de cambios.</p>
+<p><strong>CE trabajados:</strong> a), b), c), d), f), g), h), i), j)</p></a><a class="card ejercicio" data-ut="7" href="19_ejercicio_UT7/">
+<div class="ra">19_ejercicio_UT7 · UT7 · RA7 · Nivel 1</div>
+<h3>Elige un modelo NoSQL</h3><p>Una aplicación debe almacenar un catálogo cambiante, relaciones entre amistades y eventos de telemetría de alto volumen. No todas las necesidades tienen la misma estructura ni consultas.</p>
+<p><strong>CE trabajados:</strong> a), b), c), d)</p></a><a class="card ejercicio" data-ut="7" href="20_ejercicio_UT7/">
+<div class="ra">20_ejercicio_UT7 · UT7 · RA7 · Nivel 2</div>
+<h3>Gestiona un catálogo documental</h3><p>Crea una pequeña base MongoDB para el catálogo TiendaTech. Puedes usar el guion ficticio incluido en Material o generar documentos propios.</p>
+<p><strong>CE trabajados:</strong> b), c), d), e)</p></a></div><h2>Cobertura curricular</h2><p>La colección completa cubre los siete RA y todos sus CE, según las unidades de trabajo de Bases de Datos.</p><div class="cols"><div class="tip"><strong>UT1 · RA1</strong><br>Almacenamiento de la información y SGBD
+<br><small>Criterios cubiertos: a), b), c), d), e), f), g), h), i), j)</small><br>
+<a href="?ut=1">Ver ejercicios de la UT1</a></div><div class="tip"><strong>UT2 · RA6</strong><br>Diseño lógico: E-R y normalización
+<br><small>Criterios cubiertos: a), b), c), d), e), f), g), h)</small><br>
+<a href="?ut=2">Ver ejercicios de la UT2</a></div><div class="tip"><strong>UT3 · RA2</strong><br>Creación de bases de datos relacionales
+<br><small>Criterios cubiertos: a), b), c), d), e), f), g), h)</small><br>
+<a href="?ut=3">Ver ejercicios de la UT3</a></div><div class="tip"><strong>UT4 · RA3</strong><br>Realización de consultas
+<br><small>Criterios cubiertos: a), b), c), d), e), f), g), h)</small><br>
+<a href="?ut=4">Ver ejercicios de la UT4</a></div><div class="tip"><strong>UT5 · RA4</strong><br>Tratamiento de datos
+<br><small>Criterios cubiertos: a), b), c), d), e), f), g), h)</small><br>
+<a href="?ut=5">Ver ejercicios de la UT5</a></div><div class="tip"><strong>UT6 · RA5</strong><br>Programación de bases de datos
+<br><small>Criterios cubiertos: a), b), c), d), e), f), g), h), i), j)</small><br>
+<a href="?ut=6">Ver ejercicios de la UT6</a></div><div class="tip"><strong>UT7 · RA7</strong><br>Bases de datos no relacionales
+<br><small>Criterios cubiertos: a), b), c), d), e)</small><br>
+<a href="?ut=7">Ver ejercicios de la UT7</a></div></div><h2>Material de prácticas</h2><p><a href="material/tiendatech_mysql.sql">Esquema y datos ficticios de TiendaTech para MySQL 8.4</a> ·
+<a href="material/tiendatech_mongo.js">Datos de ejemplo para MongoDB</a>. Ejecuta siempre el material en una base de pruebas.</p>
+</main><footer>Material didáctico · 2026-27 · Ejercicios sin solucionarios públicos; datos ficticios.</footer>
+<script>const unidad=document.getElementById('unidad'),params=new URLSearchParams(location.search);unidad.value=params.get('ut')||'';
+function filtrar(){document.querySelectorAll('.ejercicio').forEach(e=>e.hidden=!!unidad.value&&e.dataset.ut!==unidad.value)}
+unidad.addEventListener('change',()=>{filtrar();const q=unidad.value?('?ut='+unidad.value):location.pathname;history.replaceState(null,'',q)});
+filtrar();</script></body></html>
