@@ -21,6 +21,10 @@ Una pequeña tienda guarda clientes, productos y pedidos en hojas de cálculo in
 
 Una tabla comparativa de las alternativas y una recomendación razonada de una página. Incluye un pequeño esquema de componentes del SGBD.
 
+## Ampliación (opcional, no evaluable)
+
+- Prepara un entorno de trabajo reproducible: levanta MySQL 8.4 con el `docker-compose.yml` de Material, conéctate con DataGrip (host `localhost`, puerto 3306) y ejecuta `SELECT VERSION();`. Explica qué datos se pierden con `docker compose down -v` y por qué.
+
 ## Material
 
 Utiliza únicamente datos inventados y documenta tus supuestos.

@@ -21,6 +21,10 @@ Una biblioteca necesita gestionar libros, ejemplares, personas usuarias y prést
 
 Guion DDL ejecutable en MySQL 8.4, diagrama del esquema y evidencia de una prueba válida y otra rechazada por una restricción.
 
+## Ampliación (opcional, no evaluable)
+
+- Elige y justifica el juego de caracteres y el cotejamiento de la base de datos (`utf8mb4`; ¿`_ai_ci`, `_as_cs` o el español `es_0900_ai_ci`?). Comprueba con tildes, «ñ» y emojis cómo afecta a las comparaciones, a `ORDER BY` y a una restricción `UNIQUE`.
+
 ## Material
 
 Esquema y datos ficticios: [`../material/tiendatech_mysql.sql`](../material/tiendatech_mysql.sql). Usa una base de datos de pruebas MySQL 8.4.

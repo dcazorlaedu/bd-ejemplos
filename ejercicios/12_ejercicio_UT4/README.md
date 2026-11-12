@@ -22,6 +22,10 @@ TiendaTech quiere localizar productos cuyo precio supera la media de su categor�
 
 Consultas MySQL, salidas de EXPLAIN antes/después y una justificación de la estrategia de optimización. Usa el esquema de Material.
 
+## Ampliación (opcional, no evaluable)
+
+- Crea un índice `FULLTEXT` sobre un campo de texto y busca con `MATCH ... AGAINST` en modo natural y booleano. Activa el registro de consultas lentas (`long_query_time = 0`) y localiza la consulta más costosa con `mysqldumpslow`.
+
 ## Material
 
 Esquema y datos ficticios: [`../material/tiendatech_mysql.sql`](../material/tiendatech_mysql.sql). Usa una base de datos de pruebas MySQL 8.4.

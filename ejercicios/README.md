@@ -8,4 +8,6 @@ El origen editable está en `ejercicios.json`. Para regenerar el índice, las p�
 python3 ejercicios/build.py
 ```
 
+Para preparar el entorno (MySQL 8.4 y MongoDB con Docker, conexión con DataGrip) consulta `material/LEEME.md`. Algunos ejercicios incluyen un apartado de **ampliación opcional**, no evaluable.
+
 Los materiales de TiendaTech son inventados. Ejecuta los guiones únicamente en bases de datos de pruebas.

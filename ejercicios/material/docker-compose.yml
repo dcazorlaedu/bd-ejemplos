@@ -1,0 +1,29 @@
+# Entorno de prácticas: MySQL 8.4 y MongoDB. Solo para el aula (contraseñas de ejemplo).
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: bd_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root_dev
+      MYSQL_DATABASE: tiendatech_ejercicios
+      MYSQL_USER: alumno
+      MYSQL_PASSWORD: alumno_dev
+    ports: ["3306:3306"]
+    volumes:
+      - mysql_datos:/var/lib/mysql
+      - ./tiendatech_mysql.sql:/docker-entrypoint-initdb.d/01_tiendatech.sql:ro   # se carga solo la primera vez
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot_dev"]
+      interval: 10s
+      retries: 6
+  mongo:
+    image: mongo:8
+    container_name: bd_mongo
+    restart: unless-stopped
+    ports: ["27017:27017"]
+    volumes:
+      - mongo_datos:/data/db
+volumes:
+  mysql_datos:
+  mongo_datos:

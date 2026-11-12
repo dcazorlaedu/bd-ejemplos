@@ -1,16 +1,46 @@
 {
   "unidad": {
-    "1": {"ra": "RA1", "nombre": "Almacenamiento de la información y SGBD", "descripcion_ra": "Reconoce los elementos de las bases de datos analizando sus funciones y valorando la utilidad de los sistemas gestores."},
-    "2": {"ra": "RA6", "nombre": "Diseño lógico: E-R y normalización", "descripcion_ra": "Diseña modelos relacionales normalizados interpretando diagramas entidad/relación."},
-    "3": {"ra": "RA2", "nombre": "Creación de bases de datos relacionales", "descripcion_ra": "Crea bases de datos definiendo su estructura y las características de sus elementos según el modelo relacional."},
-    "4": {"ra": "RA3", "nombre": "Realización de consultas", "descripcion_ra": "Consulta la información almacenada en una base de datos empleando asistentes, herramientas gráficas y el lenguaje de manipulación de datos."},
-    "5": {"ra": "RA4", "nombre": "Tratamiento de datos", "descripcion_ra": "Modifica la información almacenada en la base de datos utilizando asistentes, herramientas gráficas y el lenguaje de manipulación de datos."},
-    "6": {"ra": "RA5", "nombre": "Programación de bases de datos", "descripcion_ra": "Desarrolla procedimientos almacenados evaluando y utilizando las sentencias del lenguaje incorporado en el sistema gestor de bases de datos."},
-    "7": {"ra": "RA7", "nombre": "Bases de datos no relacionales", "descripcion_ra": "Gestiona la información almacenada en bases de datos no relacionales, evaluando y utilizando las posibilidades que proporciona el sistema gestor."}
+    "1": {
+      "ra": "RA1",
+      "nombre": "Almacenamiento de la información y SGBD",
+      "descripcion_ra": "Reconoce los elementos de las bases de datos analizando sus funciones y valorando la utilidad de los sistemas gestores."
+    },
+    "2": {
+      "ra": "RA6",
+      "nombre": "Diseño lógico: E-R y normalización",
+      "descripcion_ra": "Diseña modelos relacionales normalizados interpretando diagramas entidad/relación."
+    },
+    "3": {
+      "ra": "RA2",
+      "nombre": "Creación de bases de datos relacionales",
+      "descripcion_ra": "Crea bases de datos definiendo su estructura y las características de sus elementos según el modelo relacional."
+    },
+    "4": {
+      "ra": "RA3",
+      "nombre": "Realización de consultas",
+      "descripcion_ra": "Consulta la información almacenada en una base de datos empleando asistentes, herramientas gráficas y el lenguaje de manipulación de datos."
+    },
+    "5": {
+      "ra": "RA4",
+      "nombre": "Tratamiento de datos",
+      "descripcion_ra": "Modifica la información almacenada en la base de datos utilizando asistentes, herramientas gráficas y el lenguaje de manipulación de datos."
+    },
+    "6": {
+      "ra": "RA5",
+      "nombre": "Programación de bases de datos",
+      "descripcion_ra": "Desarrolla procedimientos almacenados evaluando y utilizando las sentencias del lenguaje incorporado en el sistema gestor de bases de datos."
+    },
+    "7": {
+      "ra": "RA7",
+      "nombre": "Bases de datos no relacionales",
+      "descripcion_ra": "Gestiona la información almacenada en bases de datos no relacionales, evaluando y utilizando las posibilidades que proporciona el sistema gestor."
+    }
   },
   "ejercicios": [
     {
-      "id": "01_ejercicio_UT1", "ut": 1, "dificultad": 1,
+      "id": "01_ejercicio_UT1",
+      "ut": 1,
+      "dificultad": 1,
       "titulo": "Del archivo a la base de datos",
       "contexto": "Una pequeña tienda guarda clientes, productos y pedidos en hojas de cálculo independientes; cada vendedor mantiene además una lista local de contactos.",
       "tareas": [
@@ -20,11 +50,23 @@
         "Explica qué es un SGBD y relaciona sus funciones y componentes con dos problemas concretos del escenario."
       ],
       "entrega": "Una tabla comparativa de las alternativas y una recomendación razonada de una página. Incluye un pequeño esquema de componentes del SGBD.",
-      "ce": ["a", "b", "c", "d", "e", "f"],
-      "pista": "Distingue el modelo de datos (por ejemplo, relacional o documental) de la ubicación (centralizada o distribuida)."
+      "ce": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f"
+      ],
+      "pista": "Distingue el modelo de datos (por ejemplo, relacional o documental) de la ubicación (centralizada o distribuida).",
+      "ampliacion": [
+        "Prepara un entorno de trabajo reproducible: levanta MySQL 8.4 con el `docker-compose.yml` de Material, conéctate con DataGrip (host `localhost`, puerto 3306) y ejecuta `SELECT VERSION();`. Explica qué datos se pierden con `docker compose down -v` y por qué."
+      ]
     },
     {
-      "id": "02_ejercicio_UT1", "ut": 1, "dificultad": 2,
+      "id": "02_ejercicio_UT1",
+      "ut": 1,
+      "dificultad": 2,
       "titulo": "Diseño de una solución distribuida y responsable",
       "contexto": "TiendaTech tiene un almacén en Totana y dos puntos de venta. Necesita consultar existencias, conservar pedidos y analizar ventas sin exponer datos personales innecesarios.",
       "tareas": [
@@ -35,11 +77,22 @@
         "Propón dos preguntas de análisis para un cuadro de mando y explica cuándo el volumen o la variedad justificarían hablar de Big Data."
       ],
       "entrega": "Diagrama de distribución, tabla de fragmentos y breve informe de decisión que incluya privacidad, Big Data e inteligencia de negocios.",
-      "ce": ["c", "d", "e", "f", "g", "h", "i", "j"],
+      "ce": [
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j"
+      ],
       "pista": "La fragmentación debe responder a necesidades de acceso; no basta con copiar todas las tablas en todas las sedes."
     },
     {
-      "id": "03_ejercicio_UT2", "ut": 2, "dificultad": 1,
+      "id": "03_ejercicio_UT2",
+      "ut": 2,
+      "dificultad": 1,
       "titulo": "Modelo E-R para una cafetería",
       "contexto": "Una cafetería quiere registrar clientes, mesas, reservas, productos de carta y pedidos. Cada reserva pertenece a un cliente y una mesa; un pedido puede incluir varios productos y cada producto puede aparecer en muchos pedidos.",
       "tareas": [
@@ -49,11 +102,19 @@
         "Convierte el diagrama en una primera lista de tablas, marcando las claves primarias y ajenas."
       ],
       "entrega": "Diagrama E-R legible, lista de tablas y una breve explicación de dos decisiones de modelado.",
-      "ce": ["a", "b", "c", "d", "e"],
+      "ce": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
       "pista": "La relación entre pedidos y productos necesita representar también la cantidad solicitada."
     },
     {
-      "id": "04_ejercicio_UT2", "ut": 2, "dificultad": 2,
+      "id": "04_ejercicio_UT2",
+      "ut": 2,
+      "dificultad": 2,
       "titulo": "Del E-R al modelo relacional",
       "contexto": "Una academia programa cursos con varias ediciones. Cada edición tiene docentes y alumnado; una persona puede impartir varias ediciones y matricularse en varias.",
       "tareas": [
@@ -63,11 +124,21 @@
         "Documenta dos restricciones semánticas que necesiten lógica adicional (por ejemplo, que la fecha de fin sea posterior al inicio)."
       ],
       "entrega": "Diagrama E-R, esquema relacional con claves y restricciones, y una tabla de reglas indicando cómo se implementa cada una.",
-      "ce": ["a", "b", "c", "d", "e", "f", "h"],
+      "ce": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "h"
+      ],
       "pista": "Una relación N:M se convierte en una tabla propia; su clave puede ser compuesta o usar un identificador sustituto."
     },
     {
-      "id": "05_ejercicio_UT2", "ut": 2, "dificultad": 3,
+      "id": "05_ejercicio_UT2",
+      "ut": 2,
+      "dificultad": 3,
       "titulo": "Normalización del registro de pedidos",
       "contexto": "Se parte de una hoja única con: pedido, fecha, cliente, email, ciudad, producto, categoría, proveedor, teléfono del proveedor, cantidad y precio de venta. Un pedido puede incluir varios productos.",
       "tareas": [
@@ -77,11 +148,21 @@
         "Para cada tabla final, indica atributos, clave primaria, claves ajenas y restricciones de integridad; comprueba que la descomposición no pierde información."
       ],
       "entrega": "Desarrollo paso a paso de las formas normales y esquema relacional final. Incluye las dependencias funcionales y los supuestos.",
-      "ce": ["b", "c", "d", "e", "f", "g", "h"],
+      "ce": [
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h"
+      ],
       "pista": "Diferencia dependencia parcial de una clave compuesta y dependencia transitiva entre atributos no clave."
     },
     {
-      "id": "06_ejercicio_UT3", "ut": 3, "dificultad": 1,
+      "id": "06_ejercicio_UT3",
+      "ut": 3,
+      "dificultad": 1,
       "titulo": "Construye el esquema de una biblioteca",
       "contexto": "Una biblioteca necesita gestionar libros, ejemplares, personas usuarias y préstamos. Un libro puede tener varios ejemplares; un ejemplar puede aparecer en muchos préstamos a lo largo del tiempo.",
       "tareas": [
@@ -91,11 +172,23 @@
         "Inserta unos pocos registros de prueba y demuestra que una restricción impide una operación inválida."
       ],
       "entrega": "Guion DDL ejecutable en MySQL 8.4, diagrama del esquema y evidencia de una prueba válida y otra rechazada por una restricción.",
-      "ce": ["a", "b", "c", "d", "e", "h"],
-      "pista": "Guarda cada ejemplar físico por separado; el libro describe la obra y el ejemplar su copia prestable."
+      "ce": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "h"
+      ],
+      "pista": "Guarda cada ejemplar físico por separado; el libro describe la obra y el ejemplar su copia prestable.",
+      "ampliacion": [
+        "Elige y justifica el juego de caracteres y el cotejamiento de la base de datos (`utf8mb4`; ¿`_ai_ci`, `_as_cs` o el español `es_0900_ai_ci`?). Comprueba con tildes, «ñ» y emojis cómo afecta a las comparaciones, a `ORDER BY` y a una restricción `UNIQUE`."
+      ]
     },
     {
-      "id": "07_ejercicio_UT3", "ut": 3, "dificultad": 2,
+      "id": "07_ejercicio_UT3",
+      "ut": 3,
+      "dificultad": 2,
       "titulo": "Vistas para cada perfil",
       "contexto": "Sobre TiendaTech, el personal de almacén necesita consultar productos y existencias; dirección necesita un resumen de pedidos, pero no requiere los datos de contacto de clientes.",
       "tareas": [
@@ -105,11 +198,16 @@
         "Añade un índice a una tabla que mejore una consulta frecuente y utiliza EXPLAIN para comparar el plan antes y después."
       ],
       "entrega": "Guion DDL de las vistas e índice, consultas de prueba y breve comparación de planes. Parte del esquema MySQL de TiendaTech facilitado en Material.",
-      "ce": ["f", "h"],
+      "ce": [
+        "f",
+        "h"
+      ],
       "pista": "Una vista debe exponer solo las columnas necesarias; un índice no mejora automáticamente todas las consultas."
     },
     {
-      "id": "08_ejercicio_UT3", "ut": 3, "dificultad": 3,
+      "id": "08_ejercicio_UT3",
+      "ut": 3,
+      "dificultad": 3,
       "titulo": "Usuarios y privilegios mínimos",
       "contexto": "La base de datos de una tienda tendrá perfiles de consulta, almacén y administración. Cada perfil debe recibir solo los permisos imprescindibles.",
       "tareas": [
@@ -119,11 +217,20 @@
         "Revoca un permiso y verifica el cambio. Incluye el guion para crear las vistas que necesiten los perfiles."
       ],
       "entrega": "Guion DCL de MySQL 8.4, matriz perfil-permiso y evidencias de las pruebas. No publiques credenciales ni uses cuentas reales.",
-      "ce": ["f", "g", "h"],
-      "pista": "Aplica mínimo privilegio y evita conceder permisos globales cuando bastan permisos sobre una base de datos o vista."
+      "ce": [
+        "f",
+        "g",
+        "h"
+      ],
+      "pista": "Aplica mínimo privilegio y evita conceder permisos globales cuando bastan permisos sobre una base de datos o vista.",
+      "ampliacion": [
+        "Haz una copia lógica con `mysqldump` (`--single-transaction --routines --triggers`), restáurala en otra base de datos y compara el número de filas de cada tabla. Automatiza la copia con un script y una línea de `cron` que conserve solo los 7 últimos días."
+      ]
     },
     {
-      "id": "09_ejercicio_UT4", "ut": 4, "dificultad": 1,
+      "id": "09_ejercicio_UT4",
+      "ut": 4,
+      "dificultad": 1,
       "titulo": "Consultas básicas de catálogo",
       "contexto": "El equipo comercial necesita consultar el catálogo de TiendaTech para preparar una campaña. Usa la base de datos ficticia del laboratorio SQL o el esquema MySQL de Material.",
       "tareas": [
@@ -133,11 +240,19 @@
         "Escribe una consulta que encuentre nombres que contengan una palabra o patrón indicado por el usuario."
       ],
       "entrega": "Archivo SQL con cuatro consultas comentadas y una captura o salida tabular que permita comprobarlas.",
-      "ce": ["a", "b"],
-      "pista": "Separa proyección (columnas), selección (filas) y ordenación; no uses SELECT * si no necesitas todas las columnas."
+      "ce": [
+        "a",
+        "b"
+      ],
+      "pista": "Separa proyección (columnas), selección (filas) y ordenación; no uses SELECT * si no necesitas todas las columnas.",
+      "ampliacion": [
+        "Usa funciones de cadena y fecha (`CONCAT_WS`, `SUBSTRING_INDEX`, `DATE_FORMAT`, `TIMESTAMPDIFF`) para presentar los clientes y valida con `REGEXP` el formato de un correo. Explica por qué una función aplicada a una columna indexada puede impedir el uso del índice."
+      ]
     },
     {
-      "id": "10_ejercicio_UT4", "ut": 4, "dificultad": 2,
+      "id": "10_ejercicio_UT4",
+      "ut": 4,
+      "dificultad": 2,
       "titulo": "Pedidos, clientes y productos",
       "contexto": "Dirección quiere saber quién hizo cada pedido y qué productos se incluyeron. También necesita ver clientes sin pedidos y pedidos que todavía no tienen empleado asignado.",
       "tareas": [
@@ -147,11 +262,16 @@
         "Obtén el detalle de líneas incluyendo nombre de producto, cantidad y precio unitario; evita duplicar filas por una unión mal planteada."
       ],
       "entrega": "Cuatro consultas SQL y una frase que explique por qué se eligió INNER JOIN o LEFT JOIN en cada caso.",
-      "ce": ["c", "d"],
+      "ce": [
+        "c",
+        "d"
+      ],
       "pista": "Al usar LEFT JOIN, las filas sin correspondencia aparecen con NULL en las columnas de la tabla derecha."
     },
     {
-      "id": "11_ejercicio_UT4", "ut": 4, "dificultad": 3,
+      "id": "11_ejercicio_UT4",
+      "ut": 4,
+      "dificultad": 3,
       "titulo": "Informe de ventas por ciudad",
       "contexto": "El área comercial prepara un informe mensual basado en pedidos, clientes y líneas de pedido.",
       "tareas": [
@@ -161,11 +281,16 @@
         "Añade una consulta con UNION que combine dos grupos de productos con columnas compatibles y elimine duplicados."
       ],
       "entrega": "Guion con consultas resumen y de selección múltiple, más una explicación de agrupación, HAVING y UNION.",
-      "ce": ["e", "g"],
+      "ce": [
+        "e",
+        "g"
+      ],
       "pista": "Calcula el importe a partir de cantidad por precio unitario; agrupa por cada columna no agregada que selecciones."
     },
     {
-      "id": "12_ejercicio_UT4", "ut": 4, "dificultad": 4,
+      "id": "12_ejercicio_UT4",
+      "ut": 4,
+      "dificultad": 4,
       "titulo": "Subconsultas y optimización del informe",
       "contexto": "TiendaTech quiere localizar productos cuyo precio supera la media de su categoría, clientes con actividad por encima de la media y pedidos sin líneas. Las consultas se ejecutarán sobre MySQL.",
       "tareas": [
@@ -176,11 +301,19 @@
         "Compara las dos versiones de la consulta en legibilidad, resultados y plan de ejecución."
       ],
       "entrega": "Consultas MySQL, salidas de EXPLAIN antes/después y una justificación de la estrategia de optimización. Usa el esquema de Material.",
-      "ce": ["f", "h"],
-      "pista": "Antes de optimizar, verifica que las dos consultas devuelven el mismo conjunto de resultados."
+      "ce": [
+        "f",
+        "h"
+      ],
+      "pista": "Antes de optimizar, verifica que las dos consultas devuelven el mismo conjunto de resultados.",
+      "ampliacion": [
+        "Crea un índice `FULLTEXT` sobre un campo de texto y busca con `MATCH ... AGAINST` en modo natural y booleano. Activa el registro de consultas lentas (`long_query_time = 0`) y localiza la consulta más costosa con `mysqldumpslow`."
+      ]
     },
     {
-      "id": "13_ejercicio_UT5", "ut": 5, "dificultad": 1,
+      "id": "13_ejercicio_UT5",
+      "ut": 5,
+      "dificultad": 1,
       "titulo": "Mantenimiento seguro del catálogo",
       "contexto": "El almacén debe dar de alta un proveedor y varios productos, actualizar existencias y retirar un producto descatalogado.",
       "tareas": [
@@ -190,11 +323,17 @@
         "Incluye consultas de comprobación antes y después, y explica qué restricciones protegen la integridad."
       ],
       "entrega": "Guion SQL reproducible sobre una copia de pruebas, con comentarios, comprobaciones y un caso de error controlado.",
-      "ce": ["a", "b", "h"],
+      "ce": [
+        "a",
+        "b",
+        "h"
+      ],
       "pista": "Antes de UPDATE o DELETE, ejecuta el mismo filtro como SELECT para comprobar qué filas afectará."
     },
     {
-      "id": "14_ejercicio_UT5", "ut": 5, "dificultad": 2,
+      "id": "14_ejercicio_UT5",
+      "ut": 5,
+      "dificultad": 2,
       "titulo": "Carga de una campaña promocional",
       "contexto": "La tienda quiere guardar en una tabla de trabajo los productos activos de una categoría cuyo stock está por debajo del mínimo, calcular una propuesta de reposición y registrar los cambios mediante un guion.",
       "tareas": [
@@ -204,11 +343,19 @@
         "Agrupa las operaciones en un guion que pueda repetirse sin duplicar registros ni dejar datos incoherentes."
       ],
       "entrega": "Guion completo con DDL, INSERT ... SELECT, UPDATE, DELETE y consultas de verificación antes y después.",
-      "ce": ["a", "b", "c", "d", "h"],
+      "ce": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "h"
+      ],
       "pista": "Piensa qué clave o restricción evita insertar dos veces el mismo producto en la tabla de campaña."
     },
     {
-      "id": "15_ejercicio_UT5", "ut": 5, "dificultad": 3,
+      "id": "15_ejercicio_UT5",
+      "ut": 5,
+      "dificultad": 3,
       "titulo": "Transacción de pedido y concurrencia",
       "contexto": "Al confirmar un pedido se deben insertar la cabecera y sus líneas, descontar stock y evitar que dos sesiones vendan las últimas unidades simultáneamente.",
       "tareas": [
@@ -219,11 +366,20 @@
         "Explica cómo claves, restricciones y control de errores mantienen la consistencia incluso si la operación se cancela."
       ],
       "entrega": "Guion de prueba para dos sesiones, secuencia de comandos y una tabla que describa bloqueo, resultado y estado final tras COMMIT/ROLLBACK.",
-      "ce": ["b", "d", "e", "f", "g", "h"],
+      "ce": [
+        "b",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h"
+      ],
       "pista": "Usa una base de pruebas; mantén las transacciones breves y adquiere los bloqueos en un orden consistente."
     },
     {
-      "id": "16_ejercicio_UT6", "ut": 6, "dificultad": 1,
+      "id": "16_ejercicio_UT6",
+      "ut": 6,
+      "dificultad": 1,
       "titulo": "Automatiza un informe de stock",
       "contexto": "El equipo de almacén solicita un informe repetible con productos bajo mínimos y el número total de referencias afectadas.",
       "tareas": [
@@ -233,11 +389,19 @@
         "Añade comentarios, una variable de usuario o local y una comprobación que permita repetir el informe sin modificar los datos."
       ],
       "entrega": "Guion MySQL ejecutable, salida de ejemplo y breve tabla que compare las alternativas de automatización.",
-      "ce": ["a", "b", "c", "d", "e"],
+      "ce": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
       "pista": "Diferencia entre ejecutar un archivo SQL y dejar una tarea programada para que se ejecute automáticamente."
     },
     {
-      "id": "17_ejercicio_UT6", "ut": 6, "dificultad": 2,
+      "id": "17_ejercicio_UT6",
+      "ut": 6,
+      "dificultad": 2,
       "titulo": "Procedimiento de reposición con reglas",
       "contexto": "TiendaTech necesita una rutina que reciba una categoría y un umbral, calcule cuántos productos necesitan reposición y devuelva una etiqueta según el resultado.",
       "tareas": [
@@ -248,11 +412,19 @@
         "Ejecuta la rutina desde un guion SQL y muestra casos normal, límite y parámetro inválido."
       ],
       "entrega": "Script con función y procedimiento, llamadas de prueba y explicación de parámetros, control de flujo y tratamiento de errores.",
-      "ce": ["d", "e", "f", "g", "j"],
+      "ce": [
+        "d",
+        "e",
+        "f",
+        "g",
+        "j"
+      ],
       "pista": "En MySQL, declara variables y manejadores al inicio del bloque BEGIN...END correspondiente."
     },
     {
-      "id": "18_ejercicio_UT6", "ut": 6, "dificultad": 3,
+      "id": "18_ejercicio_UT6",
+      "ut": 6,
+      "dificultad": 3,
       "titulo": "Auditoría de cambios y tarea programada",
       "contexto": "La empresa quiere auditar las variaciones de precio, conservar el valor anterior y nuevo, y generar cada noche un resumen de cambios.",
       "tareas": [
@@ -263,11 +435,26 @@
         "Fuerza un error controlado y demuestra que la rutina cierra recursos y comunica el problema."
       ],
       "entrega": "Guion MySQL con tabla, trigger, procedimiento, cursor, manejadores y evento; añade pruebas y explica el orden de ejecución.",
-      "ce": ["a", "b", "c", "d", "f", "g", "h", "i", "j"],
-      "pista": "No guardes una fila de auditoría cuando OLD.precio y NEW.precio sean iguales; revisa delimitadores y privilegios necesarios."
+      "ce": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j"
+      ],
+      "pista": "No guardes una fila de auditoría cuando OLD.precio y NEW.precio sean iguales; revisa delimitadores y privilegios necesarios.",
+      "ampliacion": [
+        "Inspecciona las rutinas creadas con `information_schema.routines` y `SHOW CREATE`; concede a un usuario `EXECUTE` solo sobre un procedimiento y compara `SQL SECURITY DEFINER` con `INVOKER`."
+      ]
     },
     {
-      "id": "19_ejercicio_UT7", "ut": 7, "dificultad": 1,
+      "id": "19_ejercicio_UT7",
+      "ut": 7,
+      "dificultad": 1,
       "titulo": "Elige un modelo NoSQL",
       "contexto": "Una aplicación debe almacenar un catálogo cambiante, relaciones entre amistades y eventos de telemetría de alto volumen. No todas las necesidades tienen la misma estructura ni consultas.",
       "tareas": [
@@ -277,11 +464,18 @@
         "Diseña un documento de producto con atributos opcionales y variantes; decide qué información conviene embeber y cuál referenciar."
       ],
       "entrega": "Matriz comparativa, propuesta de modelos para los tres casos y dos documentos JSON de ejemplo con campos inventados.",
-      "ce": ["a", "b", "c", "d"],
+      "ce": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
       "pista": "NoSQL no significa ausencia de esquema o de reglas; el diseño debe atender a los patrones de consulta."
     },
     {
-      "id": "20_ejercicio_UT7", "ut": 7, "dificultad": 2,
+      "id": "20_ejercicio_UT7",
+      "ut": 7,
+      "dificultad": 2,
       "titulo": "Gestiona un catálogo documental",
       "contexto": "Crea una pequeña base MongoDB para el catálogo TiendaTech. Puedes usar el guion ficticio incluido en Material o generar documentos propios.",
       "tareas": [
@@ -292,8 +486,16 @@
         "Exporta o importa la colección con una herramienta disponible (mongosh o MongoDB Database Tools), y documenta el comando y el resultado."
       ],
       "entrega": "Script mongosh reproducible, consultas CRUD, pipeline, índice y evidencia de importación/exportación. No incluyas datos personales reales.",
-      "ce": ["b", "c", "d", "e"],
-      "pista": "Prueba el script en una base de datos desechable y limita las operaciones de borrado a documentos de prueba."
+      "ce": [
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "pista": "Prueba el script en una base de datos desechable y limita las operaciones de borrado a documentos de prueba.",
+      "ampliacion": [
+        "Migra una tabla de MySQL a MongoDB pasando por JSON (`JSON_ARRAYAGG` + `mongoimport`) y comprueba que coinciden los recuentos y una suma de control."
+      ]
     }
   ]
 }

@@ -22,6 +22,10 @@ Crea una pequeña base MongoDB para el catálogo TiendaTech. Puedes usar el guio
 
 Script mongosh reproducible, consultas CRUD, pipeline, índice y evidencia de importación/exportación. No incluyas datos personales reales.
 
+## Ampliación (opcional, no evaluable)
+
+- Migra una tabla de MySQL a MongoDB pasando por JSON (`JSON_ARRAYAGG` + `mongoimport`) y comprueba que coinciden los recuentos y una suma de control.
+
 ## Material
 
 Datos ficticios: [`../material/tiendatech_mongo.js`](../material/tiendatech_mongo.js). Usa una base de datos MongoDB de pruebas.

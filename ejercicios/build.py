@@ -85,7 +85,8 @@ def render_listing():
 <br><small>Criterios cubiertos: {esc(', '.join(ce + ')' for ce in ce_set))}</small><br>
 <a href="?ut={ut}">Ver ejercicios de la UT{ut}</a></div>"""
     page += """</div><h2>Material de prácticas</h2><p><a href="material/tiendatech_mysql.sql">Esquema y datos ficticios de TiendaTech para MySQL 8.4</a> ·
-<a href="material/tiendatech_mongo.js">Datos de ejemplo para MongoDB</a>. Ejecuta siempre el material en una base de pruebas.</p>
+<a href="material/tiendatech_mongo.js">Datos de ejemplo para MongoDB</a> ·
+<a href="material/docker-compose.yml">docker-compose.yml (MySQL 8.4 + MongoDB 8)</a> · <a href="material/LEEME.md">Cómo preparar el entorno con Docker y DataGrip</a>. Ejecuta siempre el material en una base de pruebas.</p>
 </main><footer>Material didáctico · 2026-27 · Ejercicios sin solucionarios públicos; datos ficticios.</footer>
 <script>const unidad=document.getElementById('unidad'),params=new URLSearchParams(location.search);unidad.value=params.get('ut')||'';
 function filtrar(){document.querySelectorAll('.ejercicio').forEach(e=>e.hidden=!!unidad.value&&e.dataset.ut!==unidad.value)}
@@ -109,6 +110,8 @@ def render_exercise(exercise):
 <h2>Situación</h2><p>{esc(exercise['contexto'])}</p><h2>Enunciado</h2><ol>"""
     page += "".join(f"<li>{esc(task)}</li>" for task in exercise["tareas"])
     page += f"""</ol><h2>Entrega</h2><p>{esc(exercise['entrega'])}</p>"""
+    if exercise.get("ampliacion"):
+        page += "<h2>Ampliación (opcional, no evaluable)</h2><ul>" + "".join(f"<li>{esc(x)}</li>" for x in exercise["ampliacion"]) + "</ul>"
     if ut in (3, 4, 5, 6):
         page += f"""<h2>Material y herramientas</h2><p><a href="../material/tiendatech_mysql.sql">Descargar esquema y datos ficticios de TiendaTech (MySQL 8.4)</a>.
 Trabaja en una base de datos de pruebas, no en una instancia compartida. También puedes abrir el <a href="../../lab/">laboratorio SQL del sitio</a> para las consultas compatibles con SQLite.</p>"""
@@ -123,6 +126,9 @@ def render_markdown(exercise):
     info = UNIDADES[str(exercise["ut"])]
     ce_labels = ", ".join(f"{ce})" for ce in exercise["ce"])
     tasks = "\n".join(f"{n}. {task}" for n, task in enumerate(exercise["tareas"], 1))
+    ampl = ""
+    if exercise.get("ampliacion"):
+        ampl = "\n## Ampliación (opcional, no evaluable)\n\n" + "\n".join(f"- {x}" for x in exercise["ampliacion"]) + "\n"
     text = f"""# {exercise['id']} · {exercise['titulo']}
 
 **UT{exercise['ut']} · {info['ra']} · Nivel {exercise['dificultad']}**
@@ -142,7 +148,7 @@ def render_markdown(exercise):
 ## Entrega
 
 {exercise['entrega']}
-
+{ampl}
 ## Material
 
 """

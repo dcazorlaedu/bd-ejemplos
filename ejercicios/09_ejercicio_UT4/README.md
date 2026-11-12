@@ -21,6 +21,10 @@ El equipo comercial necesita consultar el catálogo de TiendaTech para preparar 
 
 Archivo SQL con cuatro consultas comentadas y una captura o salida tabular que permita comprobarlas.
 
+## Ampliación (opcional, no evaluable)
+
+- Usa funciones de cadena y fecha (`CONCAT_WS`, `SUBSTRING_INDEX`, `DATE_FORMAT`, `TIMESTAMPDIFF`) para presentar los clientes y valida con `REGEXP` el formato de un correo. Explica por qué una función aplicada a una columna indexada puede impedir el uso del índice.
+
 ## Material
 
 Esquema y datos ficticios: [`../material/tiendatech_mysql.sql`](../material/tiendatech_mysql.sql). Usa una base de datos de pruebas MySQL 8.4.

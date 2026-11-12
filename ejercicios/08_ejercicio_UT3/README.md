@@ -21,6 +21,10 @@ La base de datos de una tienda tendrá perfiles de consulta, almacén y administ
 
 Guion DCL de MySQL 8.4, matriz perfil-permiso y evidencias de las pruebas. No publiques credenciales ni uses cuentas reales.
 
+## Ampliación (opcional, no evaluable)
+
+- Haz una copia lógica con `mysqldump` (`--single-transaction --routines --triggers`), restáurala en otra base de datos y compara el número de filas de cada tabla. Automatiza la copia con un script y una línea de `cron` que conserve solo los 7 últimos días.
+
 ## Material
 
 Esquema y datos ficticios: [`../material/tiendatech_mysql.sql`](../material/tiendatech_mysql.sql). Usa una base de datos de pruebas MySQL 8.4.

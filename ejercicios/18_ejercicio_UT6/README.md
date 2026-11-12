@@ -22,6 +22,10 @@ La empresa quiere auditar las variaciones de precio, conservar el valor anterior
 
 Guion MySQL con tabla, trigger, procedimiento, cursor, manejadores y evento; añade pruebas y explica el orden de ejecución.
 
+## Ampliación (opcional, no evaluable)
+
+- Inspecciona las rutinas creadas con `information_schema.routines` y `SHOW CREATE`; concede a un usuario `EXECUTE` solo sobre un procedimiento y compara `SQL SECURITY DEFINER` con `INVOKER`.
+
 ## Material
 
 Esquema y datos ficticios: [`../material/tiendatech_mysql.sql`](../material/tiendatech_mysql.sql). Usa una base de datos de pruebas MySQL 8.4.
