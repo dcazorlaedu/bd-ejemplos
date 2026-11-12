@@ -8,19 +8,19 @@
   { nombre: &#x27;Router WiFi 6&#x27;, precio: 89 }
 ]</code></pre><pre><code>db.pedidos.aggregate([{$unwind:&#x27;$lineas&#x27;},{$group:{_id:&#x27;$lineas.nombre&#x27;,unidades:{$sum:&#x27;$lineas.cantidad&#x27;}}},{$sort:{unidades:-1}},{$limit:3}])</code></pre><pre><code>▶ Resultado
 [
-  { _id: &#x27;Webcam HD&#x27;, unidades: 12 },
   { _id: &#x27;Fuente 650W&#x27;, unidades: 12 },
+  { _id: &#x27;Webcam HD&#x27;, unidades: 12 },
   { _id: &#x27;Teclado mecánico&#x27;, unidades: 12 }
 ]</code></pre><pre><code>db.pedidos.findOne({},{_id:0,id:1,estado:1,lineas:{$slice:1}})</code></pre><pre><code>▶ Resultado
 {
-  estado: &#x27;pendiente&#x27;,
+  estado: &#x27;entregado&#x27;,
   lineas: [
     {
       num: 1,
-      producto_id: 18,
-      nombre: &#x27;Switch 8 puertos&#x27;,
+      producto_id: 19,
+      nombre: &#x27;Punto de acceso&#x27;,
       cantidad: 1,
-      precio_unitario: 34.9
+      precio_unitario: 119
     }
   ]
 }</code></pre><h2>Figuras de la unidad</h2><figure><img class="fig" src="f2_tipos.png" alt="Tipos de datos" style=max-width:760px><figcaption>Tipos de datos</figcaption></figure><figure><img class="fig" src="f4_modelado.png" alt="Modelado de documentos" style=max-width:760px><figcaption>Modelado de documentos</figcaption></figure><figure><img class="fig" src="f5_embeber.png" alt="Embeber frente a referenciar" style=max-width:760px><figcaption>Embeber frente a referenciar</figcaption></figure><figure><img class="fig" src="f7_pipeline.png" alt="Pipeline de agregación" style=max-width:760px><figcaption>Pipeline de agregación</figcaption></figure><figure><img class="fig" src="f9_replica_shard.png" alt="Replicación y fragmentación (sharding)" style=max-width:760px><figcaption>Replicación y fragmentación (sharding)</figcaption></figure></main>
